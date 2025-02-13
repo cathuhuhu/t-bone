@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: pink;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+}
+
+.envelope-img {
+    width: 100%;
+    position: absolute;
+    z-index: 2; /* Keeps envelope on top */
+}
+
+.letter {
+    width: 250px;
+    height: 150px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-family: "Arial", sans-serif;
+    position: absolute;
+    top: 50px;
+    left: 25px;
+    z-index: 1; /* Starts underneath the envelope */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease-out;
+}
+
+/* When the letter is pulled out */
+.letter.dragging {
+    transform: translateY(-150px); /* Moves letter upwards */
+}
