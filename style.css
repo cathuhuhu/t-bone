@@ -46,3 +46,12 @@ button {
     opacity: 0;
     transition: opacity 0.5s ease-in;
 }
+#start-text {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+#start-btn1 {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}

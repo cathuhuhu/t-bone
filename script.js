@@ -1,9 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // INTRO
     const introMessages = [
-        "I thought you were kinda cute 💖",
-        "If you're down.... ❤️",
-        "Do you wanna maybe.. 🍫",
-        "Hangout sometime?"
+        "I thought you were kinda cute",
+        "If you're down....",
+        "Do you wanna..",
+        "Hangout sometime? 🥺"
     ];
 
     let index = 0;
@@ -33,14 +34,54 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function startAdventure() {
-        window.location.href = "oops.html";
+    function beginAdventure() {
+        window.location.href = "start.html";
     }
 
     // Only run intro logic if the elements exist
     if (introText && startBtn) {
-        startBtn.addEventListener("click", startAdventure);
+        startBtn.addEventListener("click", beginAdventure);
         setTimeout(changeText, 2000);
+    }
+
+    //start scene
+    const startMessages = [
+        "I'm glad u said yes",
+        "lets plan it out",
+        "but im super indecisive",
+        "help me out?"
+    ];
+
+    let i = 0;
+    const startText = document.getElementById("start-text");
+    const startBtn1 = document.getElementById("start-btn1");
+
+    function changeStartText() {
+        if (index < startMessages.length) {
+            startText.style.opacity = "0";
+            setTimeout(() => {
+                startText.textContent = startMessages[index];
+                startText.style.opacity = "1";
+                index++;
+                setTimeout(changeStartText, 2000);
+            }, 500);
+            
+        } else {
+            setTimeout(() => {
+                startBtn1.style.display = "inline-block";
+                startBtn1.style.opacity = "1"; // Make button visible smoothly                 
+            }, 500);
+        }
+    }
+
+    function startAdventure() {
+        window.location.href = "outfit.html";
+    }
+
+    // Only run start logic if the elements exist
+    if (startText && startBtn1) {
+        startBtn1.addEventListener("click", startAdventure);
+        setTimeout(changeStartText, 2000);
     }
 
     // Other unrelated code can go below:
@@ -68,5 +109,8 @@ document.addEventListener("DOMContentLoaded", () => {
     letter.addEventListener("dragend", () => {
         setTimeout(() => letter.classList.remove("dragging"), 1000); // Optional: Reset after a second
     });
+
+    
+    
 
 });
